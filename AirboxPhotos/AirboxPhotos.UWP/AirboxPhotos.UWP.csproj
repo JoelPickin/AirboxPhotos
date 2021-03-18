@@ -104,6 +104,16 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="boat1.jpg" />
+    <Content Include="boat2.jpg" />
+    <Content Include="boat3.jpg" />
+    <Content Include="boat4.jpg" />
+    <Content Include="boat5.jpg" />
+    <Content Include="car1.jpg" />
+    <Content Include="car2.jpg" />
+    <Content Include="helicopter1.jpg" />
+    <Content Include="helicopter2.jpg" />
+    <Content Include="helicopter3.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

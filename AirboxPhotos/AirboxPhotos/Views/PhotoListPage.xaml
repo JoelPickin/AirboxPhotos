@@ -4,20 +4,29 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="AirboxPhotos.Views.PhotoListPage">
-    <FlexLayout Wrap="Wrap" Padding="10, 0, 10, 0" 
-                            JustifyContent="{Binding JustifyContent}" 
-                            BindableLayout.ItemsSource="{Binding Photos}">
+    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="0">
+    <FlexLayout HorizontalOptions="Center" Wrap="Wrap" Direction="Row" AlignItems="Center" AlignContent="Start"
+                            BindableLayout.ItemsSource="{Binding Photos1}">
         <BindableLayout.ItemTemplate>
             <DataTemplate>
-                <Frame HasShadow="False"
-                                       HeightRequest="{Binding Source={x:Reference Name = PhotosListView}, Path=BindingContext.PhotoHeight}" 
-                                       WidthRequest="{Binding Source={x:Reference Name = PhotosListView}, Path=BindingContext.PhotoWidth}" 
-                                       Padding="1, 1, 1, 1">
-
-                    <Image Source="{Binding Source}" 
-                           Aspect="Fill"/>
-                </Frame>
+                <Image Source="{Binding Source}" 
+                           Aspect="Fill"
+                           HeightRequest="{Binding Height}"
+                           WidthRequest="{Binding Width}"/>
             </DataTemplate>
         </BindableLayout.ItemTemplate>
     </FlexLayout>
+
+    <FlexLayout HorizontalOptions="Center" Wrap="Wrap" Direction="Column" AlignItems="Center" AlignContent="Start"
+                        BindableLayout.ItemsSource="{Binding Photos2}">
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+                <Image Source="{Binding Source}" 
+                        Aspect="Fill"
+                        HeightRequest="{Binding Height}"
+                        WidthRequest="{Binding Width}"/>
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+    </FlexLayout>
+    </StackLayout>
 </ContentPage>
