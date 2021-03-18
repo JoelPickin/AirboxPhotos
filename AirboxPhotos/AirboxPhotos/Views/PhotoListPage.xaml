@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="AirboxPhotos.Views.PhotoListPage">
+    <FlexLayout Wrap="Wrap" Padding="10, 0, 10, 0" 
+                            JustifyContent="{Binding JustifyContent}" 
+                            BindableLayout.ItemsSource="{Binding Photos}">
+        <BindableLayout.ItemTemplate>
+            <DataTemplate>
+                <Frame HasShadow="False"
+                                       HeightRequest="{Binding Source={x:Reference Name = PhotosListView}, Path=BindingContext.PhotoHeight}" 
+                                       WidthRequest="{Binding Source={x:Reference Name = PhotosListView}, Path=BindingContext.PhotoWidth}" 
+                                       Padding="1, 1, 1, 1">
+
+                    <Image Source="{Binding Source}" 
+                           Aspect="Fill"/>
+                </Frame>
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+    </FlexLayout>
+</ContentPage>
