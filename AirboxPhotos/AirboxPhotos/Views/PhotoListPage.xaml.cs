@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using AirboxPhotos.Views.Templates;
+using Xamarin.Forms;
 
 namespace AirboxPhotos.Views
 {
@@ -7,6 +8,8 @@ namespace AirboxPhotos.Views
         public PhotoListPage()
         {
             InitializeComponent();
+
+            //Content = new _2ItemTemplate();
         }
     }
 }

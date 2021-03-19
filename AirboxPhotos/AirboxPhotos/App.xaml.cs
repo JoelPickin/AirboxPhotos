@@ -1,3 +1,4 @@
+using AirboxPhotos.Data;
 using AirboxPhotos.ViewModels;
 using AirboxPhotos.Views;
 using Prism;
@@ -28,6 +29,8 @@ namespace AirboxPhotos
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<PhotoListPage, PhotoListPageViewModel>();
+
+            containerRegistry.Register<IPhotoRepository, PhotoRepostiory>();
         }
     }
 }

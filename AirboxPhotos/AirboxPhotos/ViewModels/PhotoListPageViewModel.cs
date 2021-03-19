@@ -7,91 +7,81 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Xamarin.Forms;
 using AirboxPhotos.Models;
+using Xamarin.Essentials;
+using AirboxPhotos.Data;
 
 namespace AirboxPhotos.ViewModels
 {
     public class PhotoListPageViewModel : ViewModelBase
     {
-        public ObservableCollection<Photo> Photos1 { get; set; }
-        public ObservableCollection<Photo> Photos2 { get; set; }
-        public int PhotoHeight { get; set; } = 110;
-        public int PhotoWidth { get; set; } = 110;
+        //Load Requested Photos
+        //Loop through and add to single photo object
+        IPhotoRepository _photoRepostiory { get; set; }
+        public List<Photo> Photos { get; set; }
+        public Photo Photo1 { get; set; }
+        public Photo Photo2 { get; set; }
+        public Photo Photo3 { get; set; }
+        public Photo Photo4 { get; set; }
+        public Photo Photo5 { get; set; }
+        public Photo Photo6 { get; set; }
+        public Photo Photo7 { get; set; }
+        public Photo Photo8 { get; set; }
+        public Photo Photo9 { get; set; }
 
-        public PhotoListPageViewModel(INavigationService navigationService) 
+        public PhotoListPageViewModel(INavigationService navigationService, IPhotoRepository photoRepository) 
             : base(navigationService)
         {
-            Photos1 = new ObservableCollection<Photo>
+            _photoRepostiory = photoRepository;
+
+            LoadData();
+        }
+
+        public void LoadData()
+        {
+            Photos = _photoRepostiory.GetAllPhotos().ToList();
+
+            Photo1 = new Photo
             {
-                new Photo
-                {
-                    Source = "boat1.jpg",
-                    Height = 160,
-                    Width = 160
-                },
-                new Photo
-                {
-                    Source = "boat2.jpg",
-                    Height = 80,
-                    Width = 80
-                },
-                new Photo
-                {
-                    Source = "boat5.jpg",
-                    Height = 80,
-                    Width = 80
-                }
-                //new Photo
-                //{
-                //    Source = "car1.jpg",
-                //    Height = 100,
-                //    Width = 100
-                //},
-                //new Photo
-                //{
-                //    Source = "car2.jpg",
-                //    Height = 100,
-                //    Width = 100
-                //},
-                //new Photo
-                //{
-                //    Source = "helicopter1.jpg",
-                //    Height = 100,
-                //    Width = 100
-                //},
-                //new Photo
-                //{
-                //    Source = "helicopter2.jpg",
-                //    Height = 100,
-                //    Width = 100
-                //},
-                //new Photo
-                //{
-                //    Source = "helicopter3.jpg",
-                //    Height = 100,
-                //    Width = 100
-                //}
+                Source = "boat5.jpg"
             };
 
-            Photos2 = new ObservableCollection<Photo>
+            Photo2 = new Photo
             {
-                new Photo
-                {
-                    Source = "boat3.jpg",
-                    Height = 80,
-                    Width = 80
-                },
-                new Photo
-                {
-                    Source = "boat4.jpg",
-                    Height = 80,
-                    Width = 80
-                },
-                new Photo
-                {
-                    Source = "boat5.jpg",
-                    Height = 80,
-                    Width = 80
-                }
+                Source = "boat2.jpg"
+            };
+
+            Photo3 = new Photo
+            {
+                Source = "boat1.jpg"
+            };
+
+            Photo4 = new Photo
+            {
+                Source = "boat3.jpg"
+            };
+
+            Photo5 = new Photo
+            {
+                Source = "boat3.jpg"
+            };
+
+            Photo6 = new Photo
+            {
+                Source = "boat1.jpg"
+            };
+
+            Photo7 = new Photo
+            {
+                Source = "boat2.jpg"
+            };
+            Photo8 = new Photo
+            {
+                Source = "boat3.jpg"
+            };
+
+            Photo9 = new Photo
+            {
+                Source = "boat1.jpg"
             };
         }
 
