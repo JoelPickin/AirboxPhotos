@@ -21,9 +21,9 @@
 
 
             <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center">
-                <Button Text="Cars" BackgroundColor="Blue"/>
-                <Button Text="Boats" BackgroundColor="Blue"/>
-                <Button Text="Helicopters" BackgroundColor="Blue"/>
+                <Button x:Name="CarsBtn" Text="Cars" Style="{StaticResource buttonSelectedStyle}" Command="{Binding VehicleSelectedCommand}" CommandParameter="{Binding Source={x:Reference CarsBtn}, Path=Text, Converter={StaticResource stringToVehicle}}" Clicked="CarsBtn_Clicked"/>
+                <Button x:Name="BoatsBtn" Text="Boats" Style="{StaticResource buttonStyle}" Command="{Binding VehicleSelectedCommand}" CommandParameter="{Binding Source={x:Reference BoatsBtn}, Path=Text, Converter={StaticResource stringToVehicle}}" Clicked="BoatsBtn_Clicked"/>
+                <Button x:Name="HelicopterBtn" Text="Helicopters" Style="{StaticResource buttonStyle}" Command="{Binding VehicleSelectedCommand}" CommandParameter="{Binding Source={x:Reference HelicopterBtn}, Path=Text, Converter={StaticResource stringToVehicle}}" Clicked="HelicopterBtn_Clicked"/>
             </StackLayout>
         </Grid>
     </ContentView.Content>

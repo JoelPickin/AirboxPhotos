@@ -10,9 +10,9 @@
                 </Frame>
 
                 <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
-                    <Button Text="Cars" BackgroundColor="Blue"/>
-                    <Button Text="Boats" BackgroundColor="Blue"/>
-                    <Button Text="Helicopters" BackgroundColor="Blue"/>
+                    <Button Text="Cars" Style="{StaticResource buttonStyle}"/>
+                    <Button Text="Boats" Style="{StaticResource buttonStyle}"/>
+                    <Button Text="Helicopters" Style="{StaticResource buttonStyle}"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

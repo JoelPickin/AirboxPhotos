@@ -1,11 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
-             x:Class="AirboxPhotos.App">
+             xmlns:prism="http://prismlibrary.com" 
+                        xmlns:local="clr-namespace:AirboxPhotos.Converters"
+                        x:Class="AirboxPhotos.App">
   <Application.Resources>
 
-    <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#5896bf"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <Style x:Key="buttonSelectedStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#3d5e94"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+
+            <local:StringToVehicleTypeConverter x:Key="stringToVehicle" />
+        </ResourceDictionary>
 
   </Application.Resources>
 </prism:PrismApplication>
