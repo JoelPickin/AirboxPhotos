@@ -11,6 +11,9 @@ using Xamarin.Essentials;
 using AirboxPhotos.Data;
 using System.Windows.Input;
 using AirboxPhotos.Models.Enums;
+using AirboxPhotos.Extensions;
+using AirboxPhotos.Views.Templates;
+using System.Threading.Tasks;
 
 namespace AirboxPhotos.ViewModels
 {
@@ -18,7 +21,8 @@ namespace AirboxPhotos.ViewModels
     {
         IPhotoRepository _photoRepostiory { get; set; }
         public ICommand VehicleSelectedCommand { get; set; }
-        public List<Photo> Photos { get; set; }
+        public ICommand NavigateToImageViewer { get; set; }
+        public ObservableCollection<Photo> Photos { get; set; }
         public Photo Photo1 { get; set; }
         public Photo Photo2 { get; set; }
         public Photo Photo3 { get; set; }
@@ -34,19 +38,25 @@ namespace AirboxPhotos.ViewModels
         {
             _photoRepostiory = photoRepository;
 
-            LoadData(VehicleType.Car);
-
             VehicleSelectedCommand = new Command<VehicleType>((vehicleType) => LoadData(vehicleType));
+            NavigateToImageViewer = new Command<Photo>(async (photo) => await NavigateToImage(photo));
         }
 
-        public override void Initialize(INavigationParameters parameters)
+        public override void OnNavigatedTo(INavigationParameters parameters)
         {
-           
+            base.OnNavigatedTo(parameters);
+
+            if (IsNewNavigation(parameters))
+            {
+                LoadData(VehicleType.Car);
+            }                
         }
 
         public void LoadData(VehicleType vehicleType)
         {
-            Photos = _photoRepostiory.GetPhotosByType(vehicleType).ToList();
+            Photos = new ObservableCollection<Photo>();
+
+            Photos = _photoRepostiory.GetPhotosByType(vehicleType).ToObservableCollection();
 
             LoadIndividualPhotos();
         }
@@ -123,6 +133,17 @@ namespace AirboxPhotos.ViewModels
                     default:
                         break;
                 }
+            }
+        }
+
+        private async Task NavigateToImage(Photo photo)
+        {
+            if (photo != null)
+            {
+                var navParams = new NavigationParameters();
+                navParams.Add("Photo", photo);
+
+                await NavigationService.NavigateAsync("PhotoViewerPage", navParams);
             }
         }
     }

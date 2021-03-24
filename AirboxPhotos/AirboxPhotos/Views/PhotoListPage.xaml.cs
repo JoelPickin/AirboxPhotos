@@ -1,64 +1,41 @@
-﻿using AirboxPhotos.ViewModels;
+﻿using AirboxPhotos.Models;
+using AirboxPhotos.ViewModels;
 using AirboxPhotos.Views.Templates;
 using System;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace AirboxPhotos.Views
 {
     public partial class PhotoListPage : ContentPage
-    {
+    {      
         public PhotoListPage()
         {
             InitializeComponent();
-
-            Content = SetContentView();
         }
 
-        private View SetContentView()
+        private void VehicleBtn_Clicked(object sender, EventArgs e)
         {
-            var viewModel = (BindingContext as PhotoListPageViewModel);
+            var button = (Button)sender;
 
-            View contentView = new EmptyPlaceholderTemplate();
-
-            if (viewModel != null)
+            if (button.Id.ToString() == "CarsBtn")
             {
-                var photosCount = viewModel.Photos.Count;
-
-                switch (photosCount)
-                {
-                    case 1:
-                        contentView = new _1ItemTemplate();
-                        break;
-                    case 2:
-                        contentView = new _2ItemTemplate();
-                        break;
-                    case 3:
-                        contentView = new _3ItemTemplate();
-                        break;
-                    case 4:
-                        contentView = new _4ItemTemplate();
-                        break;
-                    case 5:
-                        contentView = new _5ItemTemplate();
-                        break;
-                    case 6:
-                        contentView = new _6ItemTemplate();
-                        break;
-                    case 7:
-                        contentView = new _7ItemTemplate();
-                        break;
-                    case 8:
-                        contentView = new _8ItemTemplate();
-                        break;
-                    case 9:
-                        contentView = new _9ItemTemplate();
-                        break;
-                    default:
-                        break;
-                }
+                CarsBtn.Style = (Style)Application.Current.Resources["buttonSelectedStyle"];
+                BoatsBtn.Style = (Style)Application.Current.Resources["buttonStyle"];
+                HelicopterBtn.Style = (Style)Application.Current.Resources["buttonStyle"];
             }
-
-            return contentView;
+            else if (button.Id.ToString() == "BoatsBtn")
+            {
+                CarsBtn.Style = (Style)Application.Current.Resources["buttonStyle"];
+                BoatsBtn.Style = (Style)Application.Current.Resources["buttonSelectedStyle"];
+                HelicopterBtn.Style = (Style)Application.Current.Resources["buttonStyle"];
+            }
+            else if (button.Id.ToString() == "HelicoptersBtn")
+            {
+                CarsBtn.Style = (Style)Application.Current.Resources["buttonStyle"];
+                BoatsBtn.Style = (Style)Application.Current.Resources["buttonStyle"];
+                HelicopterBtn.Style = (Style)Application.Current.Resources["buttonSelectedStyle"];
+            }
         }
     }
 }

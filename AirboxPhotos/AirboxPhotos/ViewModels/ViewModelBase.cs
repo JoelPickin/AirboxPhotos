@@ -38,6 +38,19 @@ namespace AirboxPhotos.ViewModels
 
         }
 
+        protected bool IsNewNavigation(INavigationParameters navParams)
+        {
+            try
+            {
+                return navParams.GetNavigationMode() == Prism.Navigation.NavigationMode.New;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return true;
+            }
+        }
+
         public virtual void Destroy()
         {
 

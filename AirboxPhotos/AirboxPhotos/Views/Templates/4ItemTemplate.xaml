@@ -16,16 +16,26 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="{Binding Photo1.Source}" Aspect="Fill" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3"/>
-            <Image Source="{Binding Photo2.Source}" Aspect="Fill" Grid.Column="2" Grid.Row="0"/>
-            <Image Source="{Binding Photo3.Source}" Aspect="Fill" Grid.Column="2" Grid.Row="1"/>
-            <Image Source="{Binding Photo4.Source}" Aspect="Fill" Grid.Column="2" Grid.Row="2"/>
-
-            <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center">
-                <Button Text="Cars" Style="{StaticResource buttonStyle}"/>
-                <Button Text="Boats" Style="{StaticResource buttonStyle}"/>
-                <Button Text="Helicopters" Style="{StaticResource buttonStyle}"/>
-            </StackLayout>
+            <Image Source="{Binding Photo1.Source}" Aspect="Fill" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="{Binding Photo2.Source}" Aspect="Fill" Grid.Column="2" Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="{Binding Photo3.Source}" Aspect="Fill" Grid.Column="2" Grid.Row="1">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="{Binding Photo4.Source}" Aspect="Fill" Grid.Column="2" Grid.Row="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                </Image.GestureRecognizers>
+            </Image>
         </Grid>
     </ContentView.Content>
 </ContentView>

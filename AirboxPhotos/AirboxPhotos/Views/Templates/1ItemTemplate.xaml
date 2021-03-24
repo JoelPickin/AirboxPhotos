@@ -6,7 +6,11 @@
         <ScrollView>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
                 <Frame VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Padding="3" BackgroundColor="LightGray">
-                    <Image Source="{Binding Photo1.Source}" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                    <Image Source="{Binding Photo1.Source}" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Frame>
 
                 <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">

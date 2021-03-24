@@ -16,20 +16,5 @@ namespace AirboxPhotos.Views.Templates
         {
             InitializeComponent();
         }
-
-        private void CarsBtn_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BoatsBtn_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HelicopterBtn_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }

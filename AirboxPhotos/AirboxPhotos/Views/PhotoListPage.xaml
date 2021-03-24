@@ -1,8 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
+             xmlns:prism="http://prismlibrary.com" xmlns:controls="clr-namespace:AirboxPhotos.Views.Controls"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="AirboxPhotos.Views.PhotoListPage">
- 
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <controls:PhotoContentSelectorView ItemList="{Binding Photos}"/>
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center">
+            <Button x:Name="CarsBtn" Text="Cars" Style="{StaticResource buttonSelectedStyle}" Command="{Binding VehicleSelectedCommand}" CommandParameter="{Binding Source={x:Reference CarsBtn}, Path=Text, Converter={StaticResource stringToVehicle}}" Clicked="VehicleBtn_Clicked"/>
+            <Button x:Name="BoatsBtn" Text="Boats" Style="{StaticResource buttonStyle}" Command="{Binding VehicleSelectedCommand}" CommandParameter="{Binding Source={x:Reference BoatsBtn}, Path=Text, Converter={StaticResource stringToVehicle}}" Clicked="VehicleBtn_Clicked"/>
+            <Button x:Name="HelicopterBtn" Text="Helicopters" Style="{StaticResource buttonStyle}" Command="{Binding VehicleSelectedCommand}" CommandParameter="{Binding Source={x:Reference HelicopterBtn}, Path=Text, Converter={StaticResource stringToVehicle}}" Clicked="VehicleBtn_Clicked"/>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

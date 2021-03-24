@@ -31,6 +31,7 @@ namespace AirboxPhotos
             containerRegistry.RegisterForNavigation<PhotoListPage, PhotoListPageViewModel>();
 
             containerRegistry.Register<IPhotoRepository, PhotoRepostiory>();
+            containerRegistry.RegisterForNavigation<PhotoViewerPage, PhotoViewerPageViewModel>();
         }
     }
 }
