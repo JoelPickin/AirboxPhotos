@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="AirboxPhotos.Views.MainNavigationPage">
+    <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Label HorizontalOptions="Center" FontSize="Large" Text="Airbox Photos!"/>
+        <Label Padding="0, 10, 0, 10" HorizontalOptions="Center" Text="To nail the layouts requested has been a bit difficult using the built in controls. I took the route of building individual templates for each potential layout and then using a custom selector to decide which to use, to attempt to keep it as DRY as possible. If I was to look at this again I may go the route of building a custom renderer or layout that can take a collection and bind to the correct layout."/>
+        <Label HorizontalOptions="Center" Text="The route I took to meet the spec is a long way round of building it. I have also created an alternative version using a Flex Layout, which was built much quicker but uses different layouts as each item is resized dynamically based on the amount on the screen. You can pass in any amount of photos and it will work. I would improve on this by dynamically changing the height and width of the photos based on the amount in the collection and the screen size."/>
+
+        <StackLayout VerticalOptions="Center" Padding="0, 100, 0, 0">
+            <Button Text="Photo List Page" Command="{Binding NavigateToListPageCommand}"/>
+            <Button Text="Alternative Photo List Page" Command="{Binding NavigateToAlternativeListPageCommand}"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

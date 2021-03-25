@@ -33,6 +33,8 @@ namespace AirboxPhotos.ViewModels
         public Photo Photo8 { get; set; }
         public Photo Photo9 { get; set; }
 
+        public Aspect Aspect { get; set; } = Aspect.Fill;
+
         public PhotoListPageViewModel(INavigationService navigationService, IPhotoRepository photoRepository) 
             : base(navigationService)
         {

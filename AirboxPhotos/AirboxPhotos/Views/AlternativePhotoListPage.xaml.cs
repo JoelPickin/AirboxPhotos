@@ -1,36 +1,13 @@
-﻿using AirboxPhotos.Models;
-using AirboxPhotos.ViewModels;
-using AirboxPhotos.Views.Templates;
-using System;
-using System.Collections.ObjectModel;
+﻿using System;
 using Xamarin.Forms;
 
 namespace AirboxPhotos.Views
 {
-    public partial class PhotoListPage : ContentPage
-    {             
-        public PhotoListPage()
+    public partial class AlternativePhotoListPage : ContentPage
+    {
+        public AlternativePhotoListPage()
         {
             InitializeComponent();
-        }
-
-        protected override void OnSizeAllocated(double width, double height)
-        {
-            base.OnSizeAllocated(width, height);
-
-            var viewModel = (BindingContext as PhotoListPageViewModel);
-
-            if (viewModel != null)
-            {
-                if (width > height)
-                {
-                    viewModel.Aspect = Aspect.AspectFill;
-                }
-                else
-                {
-                    viewModel.Aspect = Aspect.Fill;
-                }
-            }
         }
 
         private void VehicleBtn_Clicked(object sender, EventArgs e)

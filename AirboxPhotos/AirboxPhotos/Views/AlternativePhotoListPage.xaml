@@ -1,14 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com" xmlns:controls="clr-namespace:AirboxPhotos.Views.Controls"
+             xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="AirboxPhotos.Views.PhotoListPage"
-             Title="Airbox Photos">
+             x:Class="AirboxPhotos.Views.AlternativePhotoListPage" Title="Airbox Photos">
     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-        <controls:PhotoContentSelectorView ItemList="{Binding Photos}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+        <ScrollView>
+            <FlexLayout Wrap="Wrap" Padding="10, 0, 10, 0" x:Name="PhotosListView" 
+                                    JustifyContent="Center"
+                                    BindableLayout.ItemsSource="{Binding Photos}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="False" Padding="1, 1, 1, 1">
+                            <Image Source="{Binding Source}" Aspect="Fill" HeightRequest="150" WidthRequest="150"/>
 
-        <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.NavigateToImageViewer, Source={x:Reference PhotosListView}}" CommandParameter="{Binding}"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </ScrollView>
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Center">
             <Button ClassId="Cars" x:Name="CarsBtn" Text="Cars" Style="{StaticResource buttonSelectedStyle}" Command="{Binding VehicleSelectedCommand}" CommandParameter="{Binding Source={x:Reference CarsBtn}, Path=Text, Converter={StaticResource stringToVehicle}}" Clicked="VehicleBtn_Clicked"/>
             <Button ClassId="Boats" x:Name="BoatsBtn" Text="Boats" Style="{StaticResource buttonStyle}" Command="{Binding VehicleSelectedCommand}" CommandParameter="{Binding Source={x:Reference BoatsBtn}, Path=Text, Converter={StaticResource stringToVehicle}}" Clicked="VehicleBtn_Clicked"/>
             <Button ClassId="Helicopters" x:Name="HelicopterBtn" Text="Helicopters" Style="{StaticResource buttonStyle}" Command="{Binding VehicleSelectedCommand}" CommandParameter="{Binding Source={x:Reference HelicopterBtn}, Path=Text, Converter={StaticResource stringToVehicle}}" Clicked="VehicleBtn_Clicked"/>

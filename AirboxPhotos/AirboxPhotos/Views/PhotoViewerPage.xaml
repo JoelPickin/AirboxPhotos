@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="AirboxPhotos.Views.PhotoViewerPage">
+             x:Class="AirboxPhotos.Views.PhotoViewerPage"
+             Title="Airbox Photo Viewer">
     <Image VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Aspect="AspectFit" Source="{Binding Photo.Source}"/>
 </ContentPage>

@@ -20,7 +20,7 @@ namespace AirboxPhotos
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/PhotoListPage");
+            await NavigationService.NavigateAsync("NavigationPage/MainNavigationPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -32,6 +32,8 @@ namespace AirboxPhotos
 
             containerRegistry.Register<IPhotoRepository, PhotoRepostiory>();
             containerRegistry.RegisterForNavigation<PhotoViewerPage, PhotoViewerPageViewModel>();
+            containerRegistry.RegisterForNavigation<AlternativePhotoListPage, AlternativePhotoListPageViewModel>();
+            containerRegistry.RegisterForNavigation<MainNavigationPage, MainNavigationPageViewModel>();
         }
     }
 }

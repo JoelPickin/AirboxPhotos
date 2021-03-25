@@ -16,5 +16,17 @@ namespace AirboxPhotos.Views.Templates
         {
             InitializeComponent();
         }
+
+        public Aspect Aspect { get; set; } = Aspect.Fill;
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+
+            if (width > height)
+            {
+                Aspect = Aspect.AspectFill;
+            }
+        }
     }
 }

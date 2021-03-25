@@ -8,7 +8,7 @@
                 <Frame VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Padding="3" BackgroundColor="LightGray">
                     <Image Source="{Binding Photo1.Source}" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                            <TapGestureRecognizer Command="{Binding NavigateToImageViewer}" CommandParameter="{Binding Photo1}"/>
                         </Image.GestureRecognizers>
                     </Image>
                 </Frame>

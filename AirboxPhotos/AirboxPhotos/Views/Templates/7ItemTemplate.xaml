@@ -18,39 +18,39 @@
 
             <Image Source="{Binding Photo1.Source}" Aspect="Fill" Grid.Column="0" Grid.Row="0">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}" CommandParameter="{Binding Photo1}"/>
                 </Image.GestureRecognizers>
             </Image>
             <Image Source="{Binding Photo2.Source}" Aspect="Fill" Grid.Column="1" Grid.Row="0">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}" CommandParameter="{Binding Photo2}"/>
                 </Image.GestureRecognizers>
             </Image>
             <Image Source="{Binding Photo3.Source}" Aspect="Fill" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}" CommandParameter="{Binding Photo3}"/>
                 </Image.GestureRecognizers>
             </Image>
 
             <Image Source="{Binding Photo4.Source}" Aspect="Fill" Grid.Column="0" Grid.Row="1">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}" CommandParameter="{Binding Photo4}"/>
                 </Image.GestureRecognizers>
             </Image>
             <Image Source="{Binding Photo5.Source}" Aspect="Fill" Grid.Column="1" Grid.Row="1">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}" CommandParameter="{Binding Photo5}"/>
                 </Image.GestureRecognizers>
             </Image>
 
             <Image Source="{Binding Photo6.Source}" Aspect="Fill" Grid.Column="0" Grid.Row="2">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}" CommandParameter="{Binding Photo6}"/>
                 </Image.GestureRecognizers>
             </Image>
             <Image Source="{Binding Photo7.Source}" Aspect="Fill" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}"/>
+                    <TapGestureRecognizer Command="{Binding NavigateToImageViewer}" CommandParameter="{Binding Photo7}"/>
                 </Image.GestureRecognizers>
             </Image>
         </Grid>
